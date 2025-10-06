@@ -112,7 +112,12 @@ export const getJobsByUser = asyncHandler(async(req, res)=>{
         return res.status(200).json(jobs);
 
     }
-    catch(error){}
+    catch(error){
+      console.log("error in getting jobs by user:",error);
+      return res.status(500).json({
+        message:"server error",
+      })  
+    }
 });
 export const searchJobs = asyncHandler(async (req, res) => {
   try {
